@@ -35,9 +35,14 @@ fun NoteEditScreen(
                             if (title.isNotBlank() && content.isNotBlank()) {
                                 onSaveClick(title, content)
                             }
-                        }
+                        },
+                        modifier = Modifier.size(48.dp)
                     ) {
-                        Icon(Icons.Default.Save, contentDescription = "Kaydet")
+                        Icon(
+                            Icons.Default.Save,
+                            contentDescription = "Kaydet",
+                            modifier = Modifier.size(32.dp)
+                        )
                     }
                 }
             )
@@ -62,8 +67,9 @@ fun NoteEditScreen(
                 label = { Text("İçerik") },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .weight(1f),
-                minLines = 5
+                    .heightIn(min = 100.dp, max = 400.dp),
+                minLines = 3,
+                maxLines = 15
             )
         }
     }
