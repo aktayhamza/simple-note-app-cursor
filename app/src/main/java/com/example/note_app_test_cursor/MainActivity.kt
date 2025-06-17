@@ -66,7 +66,8 @@ class MainActivity : ComponentActivity() {
                                     onFavoriteClick = { note ->
                                         viewModel.toggleFavorite(note)
                                     },
-                                    navController = navController
+                                    navController = navController,
+                                    isFavoritesScreen = false
                                 )
                             }
 
@@ -85,7 +86,8 @@ class MainActivity : ComponentActivity() {
                                     onFavoriteClick = { note ->
                                         viewModel.toggleFavorite(note)
                                     },
-                                    navController = navController
+                                    navController = navController,
+                                    isFavoritesScreen = true
                                 )
                             }
 

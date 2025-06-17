@@ -23,7 +23,8 @@ fun NotesScreen(
     onAddClick: () -> Unit,
     onDeleteClick: (Note) -> Unit,
     onFavoriteClick: (Note) -> Unit,
-    navController: NavController
+    navController: NavController,
+    isFavoritesScreen: Boolean = false
 ) {
     Scaffold(
         floatingActionButton = {
@@ -47,12 +48,14 @@ fun NotesScreen(
                     verticalArrangement = Arrangement.Center
                 ) {
                     Text(
-                        text = "Henüz notunuz yok",
+                        text = if (isFavoritesScreen) "Favorilenmiş bir notunuz bulunmamaktadır" else "Henüz notunuz yok",
                         style = MaterialTheme.typography.titleLarge
                     )
-                    Spacer(modifier = Modifier.height(16.dp))
-                    Button(onClick = onAddClick) {
-                        Text("Not Ekle")
+                    if (!isFavoritesScreen) {
+                        Spacer(modifier = Modifier.height(16.dp))
+                        Button(onClick = onAddClick) {
+                            Text("Not Ekle")
+                        }
                     }
                 }
             }
